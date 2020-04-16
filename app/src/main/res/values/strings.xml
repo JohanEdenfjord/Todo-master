@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name" >ToDoList</string>
+    <string name="delete">Delete</string>
+    <string name="add">Add</string>
+    <string name="whatToDo" >what</string>
+
+
+    <string-array name="array_of_Stuff">
+        <item>Cats</item>
+        <item>Covid</item>
+        <item>Home</item>
+        <item>Stuck</item>
+    </string-array>
+    <string-array name="array_of_Stuff_second_coming">
+        <item>Animal</item>
+        <item>Nasty Virus</item>
+        <item>Where your hat is</item>
+        <item>Glue</item>
+    </string-array>
+</resources>

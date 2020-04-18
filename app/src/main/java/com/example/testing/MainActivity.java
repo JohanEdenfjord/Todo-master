@@ -122,7 +122,7 @@ public class MainActivity extends AppCompatActivity  {
 
             @Override
             public void onClick(View v) {
-                    Vibrator vibe = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+                Vibrator vibe = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
 
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                     vibe.vibrate(VibrationEffect.createOneShot(500, VibrationEffect.DEFAULT_AMPLITUDE));

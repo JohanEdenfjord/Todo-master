@@ -10,11 +10,39 @@
         <item>Covid</item>
         <item>Home</item>
         <item>Stuck</item>
+        <item>Dog</item>
+        <item>Love</item>
+        <item>War</item>
+        <item>Thralls</item>
+        <item>House</item>
+        <item>Lightning</item>
+        <item>Ball</item>
+        <item>Headgehog</item>
+        <item>Water</item>
+        <item>Android Studio</item>
+        <item>Life</item>
+        <item>OnePlus6T McLaren</item>
+        <item>White</item>
+        <item>Black</item>
     </string-array>
     <string-array name="array_of_Stuff_second_coming">
         <item>Animal</item>
-        <item>Nasty Virus</item>
+        <item>Nasty Virus?</item>
         <item>Where your hat is</item>
         <item>Glue</item>
+        <item>Mans best friend?</item>
+        <item>Enslavement</item>
+        <item>Death</item>
+        <item>Necessity</item>
+        <item>Building</item>
+        <item>Sometimes come as a blue ball</item>
+        <item>Sometimes lightning is a ball</item>
+        <item>small pigs living in hedges</item>
+        <item>LIFE</item>
+        <item>Difficult</item>
+        <item>WATER</item>
+        <item>Awesome Phone</item>
+        <item>Black</item>
+        <item>White</item>
     </string-array>
 </resources>

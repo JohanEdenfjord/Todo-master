@@ -2,11 +2,16 @@ package com.example.testing;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
+import android.os.Build;
 import android.os.Bundle;
+import android.os.VibrationEffect;
+import android.os.Vibrator;
 import android.util.SparseBooleanArray;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -54,18 +59,25 @@ public class MainActivity extends AppCompatActivity  {
         listItem = getResources().getStringArray(R.array.array_of_Stuff);
         subItem = getResources().getStringArray(R.array.array_of_Stuff_second_coming);
 
+
+        //To make the list with subitems I found that the easiest way was to use
+        // hashmap to pair together the two arraylists in strings.xml that works together.
+        // then add it to the arraylist with Add using a For Loop.
+
         arrayList = new ArrayList<>();
         for (int i = 0; i < listItem.length; i++) {
 
-            //create a hashmap to store the data in key value pair
+            //create a hash map to store the data in key value pair
             HashMap<String, String> hashMap = new HashMap<>();
 
             hashMap.put("name", listItem[i]);
             hashMap.put("Description", subItem[i]);
 
-            //add the hashmap into arrayList
+            //add the hash map into arrayList
             arrayList.add(hashMap);
         }
+
+        //using simple Adapter with the arraylist to put everything into the ListView.
 
         final String[] from= {"name", "Description"};
         int [] to = new int[]{R.id.textView, R.id.textView2};
@@ -85,36 +97,42 @@ public class MainActivity extends AppCompatActivity  {
         */
 
 
-        //Kristine working on listeners
-            btnDelete.setOnClickListener(new View.OnClickListener() {
 
+            btnDelete.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    WindowManager.LayoutParams layout = getWindow().getAttributes();
 
-                    SparseBooleanArray checkedItemPositions = listView.getCheckedItemPositions();
-                    //listOfSelections = new ArrayList<>(Arrays.asList(listItem));
-                    int itemCount = listView.getCount();
-
-                    for(int i=itemCount-1; i >= 0; i--){
-                        if(checkedItemPositions.get(i)){
-                            //adapter.remove(arraylist.get(i));
-                        }
+                    if(layout.screenBrightness == 1F){
+                        layout.screenBrightness = 0F;
+                        getWindow().setAttributes(layout);}
+                    else{
+                        layout.screenBrightness = 1F;
+                        getWindow().setAttributes(layout);
                     }
-                    adapter.notifyDataSetChanged();
-                    checkedItemPositions.clear();
+                    //In this Function we are waiting click. when the click happens
+                    //it makes a window manager that puts info in layout.
+                    //it checks wether the screen is on maxlight or not.
+                    // if so it changes to max or minimum value.
                 }
 
                 });
-            
+
             btnAdd.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
-                        String value = editText.getText().toString();
-                        //adapter.add(value);
-                        adapter.notifyDataSetChanged();
-                    }
-                });
+                    Vibrator vibe = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                    vibe.vibrate(VibrationEffect.createOneShot(500, VibrationEffect.DEFAULT_AMPLITUDE));
+                } else {
+                    //deprecated in API 26
+                    vibe.vibrate(500);
+                }
+
+                }
+            });
 
             }
 
